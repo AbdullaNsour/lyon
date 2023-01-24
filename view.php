@@ -33,8 +33,8 @@
             <p>Lyon</p>
             <p>Created on: <?php echo date('Y-m-d'); ?></p>
             <p>
-                <a href="https://github.com/yourusername">GitHub</a>
-                <a href="https://www.linkedin.com/in/yourusername">LinkedIn</a>
+            <a href="https://github.com/AbdullaNsour/lyon">GitHub</a>
+                <a href="https://www.linkedin.com/in/abdulla-nsour-886887166/">LinkedIn</a>
             </p>
         </footer>
     </div>
