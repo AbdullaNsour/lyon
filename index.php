@@ -4,7 +4,7 @@
 <head>
     <title>Lyon Users</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
-                echo "<td>" . $row["image"] . "</td>";
+                echo "<td><img src='images/".$row["image"]."' style='border-radius: 50%; height: 100px; width: 100px;'  alt='".$row["name"]."'></td>";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
                 echo "<td>" . $row["user_type"] . "</td>";
@@ -50,12 +50,13 @@
                 echo "<td>" . $row["shop_phone"] . "</td>";
                 echo "<td>" . $row["shop_location"] . "</td>";
                 echo "<td>";
-                echo "<a href='view.php?id=" . $row["id"] . "'>View</a>";
-                echo "<a href='edit.php?id=" . $row["id"] . "'>Edit</a>";
-                echo "<a href='index.php?id=" . $row["id"] . "&action=delete'>Delete</a>";
+                echo "<a href='view.php?id=" . $row["id"] . "' class='view'>View</a>";
+                echo "<a href='edit.php?id=" . $row["id"] . "'  class='edit'>Edit</a>";
+                echo "<a href='index.php?id=" . $row["id"] . "&action=delete'  class='delete' > X </a>";
                 echo "</td>";
                 echo "</tr>";
             }
+
 
             // Check if the delete action is set
             if (isset($_GET['action']) && $_GET['action'] == 'delete') {
