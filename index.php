@@ -3,19 +3,36 @@
 
 <head>
     <title>Lyon Users</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="contianer">
+    <div class="container">
 
 
-        <nav>
+        <!-- <nav>
             <a href="index.php">Home</a>
             <a href="add.php">Add User</a>
             <a href="info.php">Info</a>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.php">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="add.php">Add User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="info.php">Info</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
+
         <table>
             <tr>
                 <th>ID</th>
@@ -42,7 +59,7 @@
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
-                echo "<td><img src='images/".$row["image"]."' style='border-radius: 50%; height: 100px; width: 100px;'  alt='".$row["name"]."'></td>";
+                echo "<td><img src='images/" . $row["image"] . "' style='border-radius: 50%; height: 100px; width: 100px;'  alt='" . $row["name"] . "'></td>";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
                 echo "<td>" . $row["user_type"] . "</td>";
@@ -74,18 +91,21 @@
             $conn->close();
             ?>
         </table>
-        <footer>
-            <p>Lyon</p>
-            <p>Created on: <?php echo '24/1/2023 by Abdulla Nsour'; ?></p>
-            <p>
-                <a href="https://github.com/AbdullaNsour/lyon">GitHub</a>
-                <a href="https://www.linkedin.com/in/abdulla-nsour-886887166/">LinkedIn</a>
-            </p>
-        </footer>
+
+
+
     </div>
+    <footer>
+        <p>Lyon</p>
+        <p>Created on: <?php echo '24/1/2023 by Abdulla Nsour'; ?></p>
+        <p>
+            <a href="https://github.com/AbdullaNsour/lyon">GitHub</a>
+            <a href="https://www.linkedin.com/in/abdulla-nsour-886887166/">LinkedIn</a>
+        </p>
+    </footer>
 
 
-    
+
 </body>
 
 

@@ -31,7 +31,7 @@
         <a href="pdf_view.php?id=<?php echo $_GET['id']; ?>">Download as PDF</a>
         <footer>
             <p>Lyon</p>
-            <p>Created on: <?php echo date('Y-m-d'); ?></p>
+            <p>Created on: 24/1/2023 by Abdulla Nsour</p>
             <p>
             <a href="https://github.com/AbdullaNsour/lyon">GitHub</a>
                 <a href="https://www.linkedin.com/in/abdulla-nsour-886887166/">LinkedIn</a>

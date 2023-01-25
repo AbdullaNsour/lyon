@@ -17,7 +17,7 @@
         echo "<p>Name: " . $row["name"] . "</p>";
         echo "<p>Email: " . $row["email"] . "</p>";
         echo "<p>User Type: " . $row["user_type"] . "</p>";
-        if($row["user_type"] == 'shop'){
+        if($row["user_type"] == 'seller'){
             echo "<p>Shop Name: " . $row["shop_name"] . "</p>";
             echo "<p>Shop Phone: " . $row["shop_phone"] . "</p>";
             echo "<p>Shop Location: " . $row["shop_location"] . "</p>";
