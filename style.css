@@ -36,7 +36,12 @@ nav a:hover {
 
 footer {
     position: absolute;
-    bottom: 0; /* always at the bottom */
+    bottom: 0;
+    margin-top: 25px;
+    min-height:30vh; 
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     width: 100%; 
     background-color: #212529; 
     color: #f8f9fa;
@@ -45,12 +50,6 @@ footer {
     text-align:center ;
 }
 
-
-footer a:hover {
-    color: #dddddd; /* change color */
-    font-size:20px; /* expand */
-    padding:10px;
-}
 
 
 /* Add User Style */
@@ -86,10 +85,11 @@ input[type="file"] {
     border-radius: 5px;
 }
 
-img{
-width: 100px;
-height: 100px;
+img {
 border-radius: 50%;
+border-radius: 50%; 
+height: 100px;
+width: 100px;
 }
 
 
@@ -142,3 +142,18 @@ input[type="submit"]:hover {
     text-decoration:none;
     padding-right: 5px;
 }
+
+
+
+  #name-error {
+    border-color: #dc3545;
+    display: none;
+  }
+  #alert-box {
+    width: 50%; 
+    margin: 0 auto; 
+    padding: 20px; 
+    display: flex;
+    color: #25a117;
+    display: none;
+  }

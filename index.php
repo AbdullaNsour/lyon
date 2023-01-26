@@ -1,3 +1,30 @@
+<?php
+// Connect to the MySQL server
+$conn = new mysqli("localhost", "root", "", "lyon");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// Retrieve all users from the database
+$sql = "SELECT * FROM users";
+
+$result = $conn->query($sql);
+    if (isset($_GET['action']) && $_GET['action'] == 'delete') {
+        $id = $_GET['id'];
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = "DELETE FROM users WHERE id = $id";
+        $result = $conn->query($sql);
+        if ($result) {
+            echo "User deleted successfully.";
+        } else {
+            echo "Error deleting user: " . $conn->error;
+        }
+        $conn->close();
+        header("Location: index.php");}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -9,13 +36,6 @@
 
 <body>
     <div class="container">
-
-
-        <!-- <nav>
-            <a href="index.php">Home</a>
-            <a href="add.php">Add User</a>
-            <a href="info.php">Info</a>
-        </nav> -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.php">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,19 +67,13 @@
 
             </tr>
             <?php
-            // Connect to the MySQL server
-            $conn = new mysqli("localhost", "root", "", "lyon");
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            // Retrieve all users from the database
-            $sql = "SELECT * FROM users";
-            $result = $conn->query($sql);
+
+           
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td>" . $row["id"] . "</td>";
-                echo "<td><img src='images/" . $row["image"] . "' style='border-radius: 50%; height: 100px; width: 100px;'  alt='" . $row["name"] . "'></td>";
+                echo " <td><img src='images/" . $row["image"] . "''  alt='" . $row["name"] . "'></td> ";
                 echo "<td>" . $row["name"] . "</td>";
                 echo "<td>" . $row["email"] . "</td>";
                 echo "<td>" . $row["user_type"] . "</td>";
@@ -69,26 +83,13 @@
                 echo "<td>";
                 echo "<a href='view.php?id=" . $row["id"] . "' class='view'>View</a>";
                 echo "<a href='edit.php?id=" . $row["id"] . "'  class='edit'>Edit</a>";
-                echo "<a href='index.php?id=" . $row["id"] . "&action=delete'  class='delete' > X </a>";
+                echo "<a href='index.php?id=" . $row["id"] . "&action=delete' class='delete' onclick='return confirm(\"Are you sure you want to delete this user?\");'>X</a>";
                 echo "</td>";
                 echo "</tr>";
             }
 
+        
 
-            // Check if the delete action is set
-            if (isset($_GET['action']) && $_GET['action'] == 'delete') {
-                // Get the user id
-                $id = $_GET['id'];
-
-                // Delete the user from the database
-                $sql = "DELETE FROM users WHERE id = $id";
-                $conn->query($sql);
-
-                // Redirect to the home page
-                header("Location: index.php");
-            }
-
-            $conn->close();
             ?>
         </table>
 
